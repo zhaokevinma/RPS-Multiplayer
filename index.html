@@ -14,10 +14,11 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-lg-4">
                     <img id="pixelIcon" src="assets/images/RPS.jpg" alt="This is supposed to be a cool pixel icon">
                 </div>
-                <div class="col-sm-7" id="jumboText">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-7" id="jumboText">
                     <p>RPS</p>
                     <p>Multiplayer!</p>
                 </div>
@@ -25,10 +26,23 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-5 col-sm-6" style="background-color: aquamarine">
-                    Chat area
+                <div class="col-lg-4 chat">
+                    <div class="row">
+                        <div class="col-lg-10 offset-lg-1">
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <input type="text" id="userName" value="Your name?">
+                                </div>
+                                <div class="col-lg-1"></div>
+                                <div class="col-lg-1">
+                                    <button id="userNameSubmit">Sign in</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-7 col-sm-6" style="background-color: burlywood">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-7 game">
                     Game area
                 </div>
             </div>
