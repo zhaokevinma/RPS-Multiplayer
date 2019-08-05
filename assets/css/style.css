@@ -4,8 +4,15 @@ body {
 }
 
 #pixelIcon {
-    width: 375px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 375px;
     height: 200px;
 }
 
-
+#jumboText {
+    font-size: 36px;
+    text-align: center;
+    line-height: 100px;
+}
