@@ -3,15 +3,9 @@ body {
     font-family: 'Press Start 2P', cursive;
 }
 
-.jumbotron {
-    height: 190px;
-    background-image: url("../images/RPS.jpg");
-    background-size: 420px 240px;
-    background-repeat: no-repeat;
-    background-color: #fef0ef;
+#pixelIcon {
+    width: 375px;
+    height: 200px;
 }
 
-.rules {
-    font-size: 36px;
-    float: right;
-}
+
