@@ -7,26 +7,38 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    min-width: 375px;
-    height: 200px;
+    min-width: 350px;
+    height: 150px;
 }
 
 #jumboText {
     font-size: 36px;
     text-align: center;
-    line-height: 100px;
+    line-height: 75px;
 }
 
 .chat {
     background-color: white;
-    height: 480px;
+    height: 520px;
     margin: 20px 0;
     box-shadow: 0 20px, 0 -20px, 20px 0, -20px 0, 10px 10px, 10px -10px, -10px 10px, -10px -10px;
 }
 
+.chatWall {
+    height: 400px;
+    margin: 20px 0;
+    box-shadow: 0 10px, 0 -10px, 10px 0, -10px 0, 5px 5px, 5px -5px, -5px 5px, -5px -5px;
+}
+
+.textInput, .textSend {
+    height: 50px;
+    margin: 5px 7.5px;
+    box-shadow: 0 4px, 0 -4px, 4px 0, -4px 0, 2px 2px, 2px -2px, -2px 2px, -2px -2px;
+}
+
 .game {
     background-color: white;
-    height: 480px;
+    height: 520px;
     margin: 20px 0;
     box-shadow: 0 20px, 0 -20px, 20px 0, -20px 0, 10px 10px, 10px -10px, -10px 10px, -10px -10px;
 }
