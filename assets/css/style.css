@@ -27,12 +27,16 @@ body {
 .chatWall {
     height: 375px;
     margin: 20px 0;
-    box-shadow: 0 10px, 0 -10px, 10px 0, -10px 0, 5px 5px, 5px -5px, -5px 5px, -5px -5px;
+    box-shadow: 0 6px, 0 -6px, 6px 0, -6px 0, 3px 3px, 3px -3px, -3px 3px, -3px -3px;
 }
 
-.textInput, .textSend {
-    height: 75px;
+.textInput {
+    height: 74px;
     margin: 5px 0;
+    box-shadow: 0 6px, 0 -6px, 6px 0, -6px 0, 3px 3px, 3px -3px, -3px 3px, -3px -3px;
+}
+
+.btn {
     box-shadow: 0 6px, 0 -6px, 6px 0, -6px 0, 3px 3px, 3px -3px, -3px 3px, -3px -3px;
 }
 
@@ -41,22 +45,4 @@ body {
     height: 520px;
     margin: 20px 0;
     box-shadow: 0 20px, 0 -20px, 20px 0, -20px 0, 10px 10px, 10px -10px, -10px 10px, -10px -10px;
-}
-
-.scoreBoard {
-    height: 100px;
-    margin: 15px 0;
-    box-shadow: 0 6px, 0 -6px, 6px 0, -6px 0, 3px 3px, 3px -3px, -3px 3px, -3px -3px;
-}
-
-.userSelected {
-    height: 250px;
-    margin: 15px 0;
-    box-shadow: 0 6px, 0 -6px, 6px 0, -6px 0, 3px 3px, 3px -3px, -3px 3px, -3px -3px;
-}
-
-.userOptions {
-    height: 75px;
-    margin: 10px 0;
-    box-shadow: 0 6px, 0 -6px, 6px 0, -6px 0, 3px 3px, 3px -3px, -3px 3px, -3px -3px;
 }
