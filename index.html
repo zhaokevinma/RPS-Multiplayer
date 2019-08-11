@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="assets/css/style.css">
         <!-- Google font -->
         <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <!-- Font awesome icon -->
+        <script src="https://kit.fontawesome.com/1fb32f5537.js"></script>
     </head>
     <body>
         <div class="container">
@@ -20,12 +22,9 @@
                 <div class="col-lg-1"></div>
                 <div class="col-lg-7">
                     <div id="jumboText">
-                        <p>RPS Multiplayer!</p>
+                        <p>RPS</p>
+                        <p>Multiplayer!</p>
                     </div>
-                    <form class="form-inline">
-                        <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName" placeholder="Jane Doe">
-                        <button type="submit" class="btn mb-2">Sign in</button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -34,17 +33,42 @@
                 <div class="col-lg-4 chat">
                     <div class="row chatWall"></div>
                     <div class="row">
-                        <form class="form-inline">
-                            <textarea class="form-control mb-2 mr-sm-2" id="inlineFormTextArea" rows="3" placeholder="Message"></textarea>
-                            <button type="submit" class="btn mb-2" id="inlineFormTextSubmit">Go</button>
-                        </form>
+                        <div class="col-xs-12">
+                            <form class="form-row">
+                                <textarea class="col-xs-8" id="inlineFormTextArea" rows="3" placeholder="Message"></textarea>
+                                <button type="submit" class="btn col-xs-4" id="inlineFormTextSubmit">Submit</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-1"></div>
                 <div class="col-lg-7 game">
                     <div class="row">
-                        <div class="col-xs-6 player playerOne"></div>
-                        <div class="col-xs-6 player playerTwo"></div>
+                        <div class="col-xs-6 player playerOne">
+                            <form class="form-row">
+                                <input type="text" class="col-xs-7" id="inlineFormInputName1" placeholder="Player 1">
+                                <button type="submit" class="btn col-xs-5" id="play1SignInButton">Sign in</button>
+                            </form>
+                        </div>
+                        <div class="col-xs-6 player playerTwo">
+                            <form class="form-row">
+                                <input type="text" class="col-xs-7" id="inlineFormInputName2" placeholder="Player 2">
+                                <button type="submit" class="btn col-xs-5" id="play2SignInButton">Sign in</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6 btn-group-vertical">
+                            <button class="btn"><i class="fas fa-hand-rock fa-5x"></i></button>
+                            <button class="btn"><i class="fas fa-hand-paper fa-5x"></i></button>
+                            <button class="btn"><i class="fas fa-hand-scissors fa-5x"></i></button>
+                        </div>
+                        <div class="col-xs-6 btn-group-vertical">
+                            <button class="btn"><i class="far fa-hand-rock fa-5x"></i></button>
+                            <button class="btn"><i class="far fa-hand-paper fa-5x"></i></button>
+                            <button class="btn"><i class="far fa-hand-scissors fa-5x"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
