@@ -18,9 +18,14 @@
                     <img id="pixelIcon" src="assets/images/RPS.jpg" alt="This is supposed to be a cool pixel icon">
                 </div>
                 <div class="col-lg-1"></div>
-                <div class="col-lg-7" id="jumboText">
-                    <p>RPS</p>
-                    <p>Multiplayer!</p>
+                <div class="col-lg-7">
+                    <div id="jumboText">
+                        <p>RPS Multiplayer!</p>
+                    </div>
+                    <form class="form-inline">
+                        <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName" placeholder="Jane Doe">
+                        <button type="submit" class="btn mb-2">Sign in</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -28,12 +33,10 @@
             <div class="row">
                 <div class="col-lg-4 chat">
                     <div class="row chatWall"></div>
-                    <div class="row textInput">
-                        <form>
-                            <div class="form-group">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                <button type="submit" class="btn">Submit</button>
-                            </div>
+                    <div class="row">
+                        <form class="form-inline">
+                            <textarea class="form-control mb-2 mr-sm-2" id="inlineFormTextArea" rows="3" placeholder="Message"></textarea>
+                            <button type="submit" class="btn mb-2" id="inlineFormTextSubmit">Go</button>
                         </form>
                     </div>
                 </div>
@@ -46,6 +49,15 @@
                 </div>
             </div>
         </div>
+
+        <footer class="footer">
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2019 Copyright:
+                <a href="https://www.linkedin.com/in/zkm/">Kevin Ma</a>
+            </div>
+             <!-- Copyright -->
+        </footer>
+
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </body>
