@@ -14,14 +14,37 @@ firebase.initializeApp(firebaseConfig);
 // Define database
 var database = firebase.database();
 
-// Test counter
-var clickCounter = 0;
+// // Test counter
+// var clickCounter = 0;
+
+// // Main
+// $("#play1SignInButton").on("click", function() {
+//     event.preventDefault();
+//     clickCounter++;
+//     database.ref().set({
+//         clickCounter: clickCounter
+//     })
+// })
 
 // Main
-$("#play1SignInButton").on("click", function() {
+
+// Player 1 and 2 login functionality
+$("#play1SignInButton").on("click", function(){
     event.preventDefault();
-    clickCounter++;
-    database.ref().set({
-        clickCounter: clickCounter
+
+    var player1 = $("#inlineFormInputName1").val().trim();
+
+    database.ref().push({
+        player1: player1
+    })
+})
+
+$("#play2SignInButton").on("click", function(){
+    event.preventDefault();
+
+    var player2 = $("#inlineFormInputName2").val().trim();
+
+    database.ref().push({
+        player2: player2
     })
 })
