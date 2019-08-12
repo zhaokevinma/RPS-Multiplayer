@@ -59,13 +59,18 @@ body {
     box-shadow: 0 10px, 0 -10px, 10px 0, -10px 0, 5px 5px, 5px -5px, -5px 5px, -5px -5px;
 }
 
-#play1SignInButton, #play2SignInButton{
+#play1SignInButton, #play2SignInButton, #play1LogOutButton, #play2LogOutButton{
     font-size: 12px;
     height: 27px;
     margin: 20px 0;
     border-radius: 0;
     box-shadow: 0 6px, 0 -6px, 6px 0, -6px 0, 3px 3px, 3px -3px, -3px 3px, -3px -3px;
 }
+
+#play1LogOutButton, #play2LogOutButton {
+    margin-left: 20px;
+}
+
 
 .btn-group-vertical {
     margin: 30px 0;
@@ -88,4 +93,10 @@ body {
     height: 60px;
     line-height: 60px;
     background-color: #fef0ef;
+}
+
+span {
+    font-size: 24px;
+    line-height: 36px;;
+    margin: 20px;
 }

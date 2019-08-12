@@ -32,19 +32,44 @@ var database = firebase.database();
 $("#play1SignInButton").on("click", function(){
     event.preventDefault();
 
-    var player1 = $("#inlineFormInputName1").val().trim();
+    var name = $("#inlineFormInputName1").val().trim();
 
-    database.ref().push({
-        player1: player1
+    database.ref("/players/player1/").push({
+        name: name
     })
 })
 
 $("#play2SignInButton").on("click", function(){
     event.preventDefault();
 
-    var player2 = $("#inlineFormInputName2").val().trim();
+    var name = $("#inlineFormInputName2").val().trim();
 
-    database.ref().push({
-        player2: player2
+    database.ref("/players/player2/").push({
+        name: name
     })
+})
+
+$(document).on("click", "#play1LogOutButton", function(){
+    event.preventDefault();
+    database.ref("/players/").child("player1").remove();
+    window.location.reload();
+})
+
+$(document).on("click", "#play2LogOutButton", function(){
+    event.preventDefault();
+    database.ref("/players/").child("player2").remove();
+    window.location.reload();
+})
+
+
+// Listen to database to monitor player connection to change UI login availability
+
+database.ref("/players/player1/").on("child_added", function(snapshot) {
+    $(".playerOne").empty();
+    $(".playerOne").html("<span>" + snapshot.val().name + "<button class='btn' id='play1LogOutButton'>Log out</button>" + "</span>");
+})
+
+database.ref("/players/player2/").on("child_added", function(snapshot) {
+    $(".playerTwo").empty();
+    $(".playerTwo").html("<span>" + snapshot.val().name + "<button class='btn' id='play2LogOutButton'>Log out</button>" + "</span>");
 })
