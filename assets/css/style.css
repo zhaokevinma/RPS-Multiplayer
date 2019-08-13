@@ -100,3 +100,9 @@ span {
     line-height: 36px;;
     margin: 20px;
 }
+
+.questionMark {
+    max-width: 300px;
+    max-height: 250px;
+    margin: 0 auto;
+}

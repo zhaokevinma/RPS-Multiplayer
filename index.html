@@ -59,15 +59,15 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-xs-6 btn-group-vertical">
-                            <button class="btn"><i class="fas fa-hand-rock fa-5x"></i></button>
-                            <button class="btn"><i class="fas fa-hand-paper fa-5x"></i></button>
-                            <button class="btn"><i class="fas fa-hand-scissors fa-5x fa-rotate-90"></i></button>
+                        <div class="col-xs-6 btn-group-vertical" id="p1Col">
+                            <button class="btn playerChoices1" id="R1" value="rock"><i class="fas fa-hand-rock fa-5x"></i></button>
+                            <button class="btn playerChoices1" id="P1" value="paper"><i class="fas fa-hand-paper fa-5x"></i></button>
+                            <button class="btn playerChoices1" id="S1" value="scissors"><i class="fas fa-hand-scissors fa-5x fa-rotate-90"></i></button>
                         </div>
-                        <div class="col-xs-6 btn-group-vertical">
-                            <button class="btn"><i class="far fa-hand-rock fa-5x"></i></button>
-                            <button class="btn"><i class="far fa-hand-paper fa-5x"></i></button>
-                            <button class="btn"><i class="far fa-hand-scissors fa-rotate-90 fa-5x"></i></button>
+                        <div class="col-xs-6 btn-group-vertical" id="p2Col">
+                            <button class="btn playerChoices2" id="R2" value="rock"><i class="far fa-hand-rock fa-5x"></i></button>
+                            <button class="btn playerChoices2" id="P2" value="paper"><i class="far fa-hand-paper fa-5x"></i></button>
+                            <button class="btn playerChoices2" id="S2" value="scissors"><i class="far fa-hand-scissors fa-rotate-90 fa-5x"></i></button>
                         </div>
                     </div>
                     <div class="row">
@@ -82,9 +82,9 @@
                                 </thead>
                                 <tbody>
                                   <tr>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td id="player1Wins"></td>
+                                    <td id="player1Losses"></td>
+                                    <td id="player1Ties"></td>
                                   </tr>
                                 </tbody>
                               </table>
@@ -100,9 +100,9 @@
                                 </thead>
                                 <tbody>
                                   <tr>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
+                                    <td id="player2Wins"></td>
+                                    <td id="player2Losses"></td>
+                                    <td id="player2Ties"></td>
                                   </tr>
                                 </tbody>
                               </table>
