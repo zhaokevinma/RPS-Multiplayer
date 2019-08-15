@@ -1,4 +1,4 @@
-// Your web app's Firebase configuration
+// Firebase config and initialization
 var firebaseConfig = {
 apiKey: "AIzaSyDyuqD3d8bpYoX8g9TqkZ9G3_XZmY6kDVs",
 authDomain: "rps-multiplayer-302af.firebaseapp.com",
@@ -8,13 +8,10 @@ storageBucket: "",
 messagingSenderId: "143158181419",
 appId: "1:143158181419:web:22362ea90dda5239"
 };
-// Initialize Firebase
+
 firebase.initializeApp(firebaseConfig);
 
-// Define database
 var database = firebase.database();
-
-// Main
 
 // Player 1 and 2 login functionality
 $("#play1SignInButton").on("click", function(){
@@ -37,6 +34,16 @@ $("#play2SignInButton").on("click", function(){
     })
 })
 
+database.ref("/players/player1/playerName/").on("child_added", function(snapshot) {
+    $(".playerOne").empty();
+    $(".playerOne").html("<span>" + snapshot.val().name + "<button class='btn' id='play1LogOutButton'>Log out</button>" + "</span>");
+})
+
+database.ref("/players/player2/playerName/").on("child_added", function(snapshot) {
+    $(".playerTwo").empty();
+    $(".playerTwo").html("<span>" + snapshot.val().name + "<button class='btn' id='play2LogOutButton'>Log out</button>" + "</span>");
+})
+
 $(document).on("click", "#play1LogOutButton", function(){
     event.preventDefault();
     database.ref("/players/").child("player1").remove();
@@ -49,134 +56,114 @@ $(document).on("click", "#play2LogOutButton", function(){
     window.location.reload();
 })
 
+// Game
+// database.ref("/players/player1/playerScore/").on("value", function(snapshot) {
+//     var p1Wins = snapshot.val().Wins;
+//     var p1Losses = snapshot.val().Losses;
+//     var p1Ties = snapshot.val().Ties;
 
-// Listen to database to monitor player connection to change UI login availability
+//     $("#player1Wins").text(p1Wins);
+//     $("#player1Losses").text(p1Losses);
+//     $("#player1Ties").text(p1Ties);
+// })
 
-database.ref("/players/player1/playerName/").on("child_added", function(snapshot) {
-    $(".playerOne").empty();
-    $(".playerOne").html("<span>" + snapshot.val().name + "<button class='btn' id='play1LogOutButton'>Log out</button>" + "</span>");
-})
+// database.ref("/players/player2/playerScore/").on("value", function(snapshot) {
+//     var p2Wins = snapshot.val().Wins;
+//     var p2Losses = snapshot.val().Losses;
+//     var p2Ties = snapshot.val().Ties;
 
-database.ref("/players/player2/playerName/").on("child_added", function(snapshot) {
-    $(".playerTwo").empty();
-    $(".playerTwo").html("<span>" + snapshot.val().name + "<button class='btn' id='play2LogOutButton'>Log out</button>" + "</span>");
-})
+//     $("#player2Wins").text(p2Wins);
+//     $("#player2Losses").text(p2Losses);
+//     $("#player2Ties").text(p2Ties);
+// })
 
-// Score in database
-
-database.ref("/players/player1/Score/").set({
-    Wins: 0,
-    Losses: 0,
-    Ties: 0
-})
-
-database.ref("/players/player1/Score/").set({
-    Wins: 0,
-    Losses: 0,
-    Ties: 0
-})
-
-// Rock Paper Scissors comparison
-var p1Choose;
-var p2Choose;
 var p1HasChosen = false;
 var p2HasChosen = false;
-
-var p1Wins = 0;
-var p1Losses = 0;
-var p1Ties = 0;
-
-var p2Wins = 0;
-var p2Losses = 0;
-var p2Ties = 0;
-
-$("#player1Wins").text(p1Wins);
-$("#player1Losses").text(p1Losses);
-$("#player1Ties").text(p1Ties);
-$("#player2Wins").text(p2Wins);
-$("#player2Losses").text(p2Losses);
-$("#player2Ties").text(p2Ties);
-
-var compare = function () {
-    if (p1Choose == p2Choose) {
-        p1Ties++;
-        p2Ties++;
-    } else if (p1Choose == 'rock') {
-        if (p2Choose == 'paper') {
-            p1Losses++;
-            p2Wins++;
-        } else if (p2Choose == 'scissors') {
-            p1Wins++;
-            p2Losses++;
-        }
-    } else if (p1Choose == 'paper') {
-        if (p2Choose == 'rock') {
-            p1Losses++;
-            p2Wins++;
-        } else if (p2Choose == 'scissors') 
-        if (p2Choose == 'scissors') {
-            p1Wins++;
-            p2Losses++;
-        }
-    } else if (p1Choose == 'scissors') {
-        if (p2Choose == 'rocks') {
-            p1Losses++;
-            p2Wins++;
-        } else if (p2Choose == 'paper') {
-            p1Wins++;
-            p2Losses++;
-        }
-    }
-}
 
 $(".playerChoices1").on("click", function(){
     event.preventDefault();
 
-    p1Choose = $(this).val();
-    p1HasChosen = true;
+    var p1Choose = $(this).val();
 
-    database.ref("/players/player1/").child("hand").set({
+    database.ref("/players/player1/playerhand/").push({
         p1Choose: p1Choose
     })
 
-    $("#p1Col").empty();
-    $("#p1Col").html("<img src='assets/images/questionMark.png' class='questionMark'>'");
-
-    if (p1HasChosen && p2HasChosen) {
-        compare();
-        window.location.reload();
-    }
+    p1HasChosen = true;
 })
 
 $(".playerChoices2").on("click", function(){
     event.preventDefault();
 
-    p2Choose = $(this).val();
-    p2HasChosen = true;
+    var p2Choose = $(this).val();
 
-    database.ref("/players/player2/").child("hand").set({
+    database.ref("/players/player2/playerhand/").push({
         p2Choose: p2Choose
     })
 
+    p2HasChosen = true;
+})
+
+database.ref("/players/player1/playerhand/").on("child_added", function() {
+    $("#p1Col").empty();
+    $("#p1Col").html("<img src='assets/images/questionMark.png' class='questionMark'>")
+})
+
+database.ref("/players/player2/playerhand/").on("child_added", function() {
     $("#p2Col").empty();
-    $("#p2Col").html("<img src='assets/images/questionMark.png' class='questionMark'>'");
-
-    if (p1HasChosen && p2HasChosen) {
-        compare();
-        window.location.reload();
-    }
+    $("#p2Col").html("<img src='assets/images/questionMark.png' class='questionMark'>")
 })
 
-database.ref("/players/player1/hand/").on("value", function(snapshot) {
-    if (snapshot.exists()) {
-        p1HasChosen = true;
+var tie = false;
+var p1Win = false;
+var p2Win = false;
+
+var compare = function () {
+    var p1Choose;
+    var p2Choose;
+
+    var ref1 = database.ref("/players/player1/playerhand/");
+    var ref2 = database.ref("/players/player2/playerhand/")
+
+    ref1.on("value", function (snapshot) {
+        p1Choose = snapshot.val().p1Choose;
+    })
+    ref2.on("value", function (snapshot) {
+        p2Choose = snapshot.val().p2Choose;
+    })
+
+    if (p1Choose == p2Choose) {
+        tie = true;
+    } else if (p1Choose == 'rock') {
+        if (p2Choose == 'paper') {
+            p2Win = true;
+        } else if (p2Choose == 'scissors') {
+            p1Win = true;
+        }
+    } else if (p1Choose == 'paper') {
+        if (p2Choose == 'rock') {
+            p1Win = true
+        } else if (p2Choose == 'scissors') {
+            p2Win = true;
+        }
+    } else if (p1Choose == 'scissors') {
+        if (p2Choose == 'rocks') {
+            p2Win = true;
+        } else if (p2Choose == 'paper') {
+            p1Win = true;
+        }
     }
+}
+
+// Chat
+$("#inlineFormTextSubmit").on("click", function() {
+    event.preventDefault();
+    var message = $("#inlineFormTextArea").val().trim();
+    var time = moment().format("DD/MM/YY hh:mm A")
+    var messageLine = "<p>Anonymous said: " + message + " on " + time + "</p>";
+    $(".chatWall").append(messageLine);
 })
 
-database.ref("/players/player2/hand/").on("value", function(snapshot) {
-    if (snapshot.exists()) {
-        p2HasChosen = true;
-    }
-})
+
 
 
